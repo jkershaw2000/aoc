@@ -23,6 +23,7 @@ func getInput(fileName string) ([]string, error) {
 	}
 	return contents, nil
 }
+
 func getPolicy(password string) (string, []string, string) {
 	pass := strings.Split(password, " ")
 	passRange := strings.Split(pass[0], "-")
@@ -70,8 +71,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	//char, passRange, passString := getPolicy("5-11 t: glhbttzvzttkdx")
-
 	fmt.Println(p1(data))
 	fmt.Println(p2(data))
 }
