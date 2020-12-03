@@ -2,27 +2,12 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"strconv"
 	"strings"
+	"time"
+
+	"../helpers"
 )
-
-func getInput(fileName string) ([]string, error) {
-	data, err := ioutil.ReadFile(fileName)
-	if err != nil {
-		return nil, err
-	}
-
-	lines := strings.Split(string(data), "\n")
-	var contents []string
-	for _, line := range lines {
-		if len(line) == 0 {
-			continue
-		}
-		contents = append(contents, string(line))
-	}
-	return contents, nil
-}
 
 func getPolicy(password string) (string, []string, string) {
 	pass := strings.Split(password, " ")
@@ -36,7 +21,8 @@ func xor(a bool, b bool) bool {
 	return (a || b) && !(a && b)
 }
 
-func p1(data []string) int {
+func p1(data []string) {
+	defer helpers.TimeTrack(time.Now())
 	count := 0
 	for _, password := range data {
 		char, passRange, passString := getPolicy(password)
@@ -47,10 +33,11 @@ func p1(data []string) int {
 			count++
 		}
 	}
-	return count
+	fmt.Printf("Part 1: %d ", count)
 }
 
-func p2(data []string) int {
+func p2(data []string) {
+	defer helpers.TimeTrack(time.Now())
 	count := 0
 	for _, password := range data {
 		char, passRange, passString := getPolicy(password)
@@ -62,15 +49,16 @@ func p2(data []string) int {
 			count++
 		}
 	}
-	return count
+	fmt.Printf("Part 1: %d ", count)
 }
 
 func main() {
+	fmt.Println("Day 2: Password Philosophy")
 	fileName := "/Users/jack/Documents/Github/aoc-2020/day2/2.in"
-	data, err := getInput(fileName)
+	data, err := helpers.GetInputStringByLine(fileName)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(p1(data))
-	fmt.Println(p2(data))
+	p1(data)
+	p2(data)
 }

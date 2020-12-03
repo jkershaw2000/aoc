@@ -2,32 +2,10 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"strings"
 	"time"
+
+	"../helpers"
 )
-
-func timeTrack(start time.Time) {
-	elapsed := time.Since(start)
-	fmt.Printf("in %s.\n", elapsed)
-}
-
-func getInput(fileName string) ([]string, error) {
-	data, err := ioutil.ReadFile(fileName)
-	if err != nil {
-		return nil, err
-	}
-
-	lines := strings.Split(string(data), "\n")
-	var contents []string
-	for _, line := range lines {
-		if len(line) == 0 {
-			continue
-		}
-		contents = append(contents, string(line))
-	}
-	return contents, nil
-}
 
 func createSlopes() [][]int {
 	// Is there a better way to do this?
@@ -50,7 +28,7 @@ func createSlopes() [][]int {
 }
 
 func p1(data []string) {
-	defer timeTrack(time.Now())
+	defer helpers.TimeTrack(time.Now())
 	res, pos := 0, 0
 	for _, line := range data {
 		if line[pos] == '#' {
@@ -62,7 +40,7 @@ func p1(data []string) {
 }
 
 func p2(data []string) {
-	defer timeTrack(time.Now())
+	defer helpers.TimeTrack(time.Now())
 	res := 1
 	slopes := createSlopes()
 	for _, slope := range slopes {
@@ -81,8 +59,9 @@ func p2(data []string) {
 }
 
 func main() {
+	fmt.Println("Day 3: Toboggan Trajectory")
 	fileName := "/Users/jack/Documents/Github/aoc-2020/day3/3.in"
-	data, err := getInput(fileName)
+	data, err := helpers.GetInputStringByLine(fileName)
 	if err != nil {
 		panic(err)
 	}

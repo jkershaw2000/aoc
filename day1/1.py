@@ -16,6 +16,8 @@ def p2():
     triplets = combinations(data, 3)
     return [triplet[2] * triplet[1] * triplet[0] for triplet in triplets if triplet[2] + triplet[1] + triplet[0] == 2020]
 
+print("Day 1: Report Repair")
+
 p1start = timer()
 p1 = p1()
 p1end = timer()

@@ -32,7 +32,8 @@ def p2():
             valid_passwords += 1
     return valid_passwords
 
-    
+print("Day 2: Password Philosophy")  
+
 p1start = timer()
 p1 = p1()
 p1end = timer()

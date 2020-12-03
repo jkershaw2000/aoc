@@ -33,6 +33,8 @@ def p2():
         res *= temp
     return res
 
+print("Day 3: Toboggan Trajectory")
+
 p1start = timer()
 p1 = p1()
 p1end = timer()
