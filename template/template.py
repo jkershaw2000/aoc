@@ -10,7 +10,7 @@ def p1():
 def p2():
     pass
 
-print("Day N: )
+print("Day N: ")
 
 p1start = timer()
 p1 = p1()
