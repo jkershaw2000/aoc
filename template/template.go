@@ -20,6 +20,7 @@ func p2(data []string) {
 }
 
 func main() {
+	fmt.Println("Day N: ")
 	fileName := "/Users/jack/Documents/Github/aoc-2020/dayN/N.in"
 	data, err := helpers.GetInputStringByLine(fileName)
 	if err != nil {
