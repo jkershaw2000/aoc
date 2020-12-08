@@ -6,22 +6,22 @@ def get_input():
         return f.read().split("\n\n")
 
 def p1():
-    res = []
+    res = 0
     data = [group.replace("\n","") for group in get_input()]
     for group in data:
-        res.append(len(set(group)))
-    return sum(res)
+        res += len(set(group))
+    return res
 
 def p2():
-    res = []
+    res = 0
     ques = set(string.ascii_lowercase)
     data  = [group.split("\n")for group in get_input()]
     for group in data:
         for line in group:
             ques &= set(line) # removes questions that werent answered yes. 
-        res.append(len(ques))
+        res += len(ques)
         ques = set(string.ascii_lowercase)
-    return sum(res)
+    return res
 
 
 print("Day 6: Custom Customs")

@@ -10,7 +10,7 @@ import (
 func p1(data []string) {
 	defer helpers.TimeTrack(time.Now())
 	res := 0
-	fmt.Printf("Part 2: %d ", res)
+	fmt.Printf("Part 1: %d ", res)
 }
 
 func p2(data []string) {
