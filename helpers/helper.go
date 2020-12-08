@@ -50,3 +50,12 @@ func GetInputIntByLine(fileName string) ([]int, error) {
 	}
 	return nums, nil
 }
+
+func Find(lst []string, val string) bool {
+	for _, str := range lst {
+		if str == val {
+			return true
+		}
+	}
+	return false
+}
