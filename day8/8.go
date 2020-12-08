@@ -51,6 +51,7 @@ func p2(instructions []string, seen []bool) int {
 	swap := map[string]string{"jmp": "nop", "nop": "jmp"}
 	var intsrLength int = len(instructions)
 	for i, used := range seen {
+		// Not good. Should not need to regenerate input. How are values passed into funtions.
 		instructions, _ := helpers.GetInputStringByLine("/Users/jack/Documents/Github/aoc-2020/day8/8.in")
 		cmd, val := instructions[i][:3], instructions[i][4:]
 		if used == true && helpers.Find(cmds, cmd) {

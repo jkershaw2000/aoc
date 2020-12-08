@@ -73,3 +73,7 @@ func MinMax(array []int) (int, int) {
 	}
 	return min, max
 }
+
+func Xor(a bool, b bool) bool {
+	return (a || b) && !(a && b)
+}

@@ -17,10 +17,6 @@ func getPolicy(password string) (string, []string, string) {
 	return string(char), passRange, string(passString)
 }
 
-func xor(a bool, b bool) bool {
-	return (a || b) && !(a && b)
-}
-
 func p1(data []string) {
 	defer helpers.TimeTrack(time.Now())
 	count := 0
@@ -45,7 +41,7 @@ func p2(data []string) {
 		high, _ := strconv.Atoi(passRange[1])
 		a := string(passString[low-1]) == char
 		b := string(passString[high-1]) == char
-		if xor(a, b) {
+		if helpers.Xor(a, b) {
 			count++
 		}
 	}

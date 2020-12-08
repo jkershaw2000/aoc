@@ -1,4 +1,5 @@
 from timeit import default_timer as timer
+from copy import deepcopy
 
 def get_input():
     with open("./day8/8.in","r") as f:
@@ -17,13 +18,14 @@ def run(instructions):
 
 def p2(seen):
     swap = {'nop':'jmp', 'jmp':'nop'}
+    instructions = get_input()
     for i, used in enumerate(seen):
-        instructions = get_input()
-        cmd, val = instructions[i][:3], instructions[i][4:]
+        editInstr = deepcopy(instructions)
+        cmd, val = editInstr[i][:3], editInstr[i][4:]
         if used == True and cmd in ['nop', 'jmp']:
-            instructions[i] = swap[cmd] + val
-        acc, _, pc = run(instructions)
-        if  pc ==  len(instructions):
+            editInstr[i] = swap[cmd] + val
+        acc, _, pc = run(editInstr)
+        if  pc ==  len(editInstr):
             return acc
 
 

@@ -7,26 +7,6 @@ import (
 	"../helpers"
 )
 
-func createSlopes() [][]int {
-	// Is there a better way to do this?
-	// Seems extremly long winded. Potentialy use a struct.
-	slopes := make([][]int, 5)
-	for i := range slopes {
-		slopes[i] = make([]int, 2)
-	}
-	slopes[0][0] = 1
-	slopes[0][1] = 1
-	slopes[1][0] = 3
-	slopes[1][1] = 1
-	slopes[2][0] = 5
-	slopes[2][1] = 1
-	slopes[3][0] = 7
-	slopes[3][1] = 1
-	slopes[4][0] = 1
-	slopes[4][1] = 2
-	return slopes
-}
-
 func p1(data []string) {
 	defer helpers.TimeTrack(time.Now())
 	res, pos := 0, 0
@@ -42,7 +22,13 @@ func p1(data []string) {
 func p2(data []string) {
 	defer helpers.TimeTrack(time.Now())
 	res := 1
-	slopes := createSlopes()
+	slopes := [][]int{
+		{1, 1},
+		{3, 1},
+		{5, 1},
+		{7, 1},
+		{1, 2},
+	}
 	for _, slope := range slopes {
 		posX, posY := 0, 0
 		temp := 0

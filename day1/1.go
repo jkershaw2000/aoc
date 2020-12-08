@@ -2,34 +2,10 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"strconv"
-	"strings"
 	"time"
 
 	"../helpers"
 )
-
-func getInput(fileName string) ([]int, error) {
-	data, err := ioutil.ReadFile(fileName)
-	if err != nil {
-		return nil, err
-	}
-
-	lines := strings.Split(string(data), "\n")
-	var nums []int
-	for _, line := range lines {
-		if len(line) == 0 {
-			continue
-		}
-		num, err := strconv.Atoi(line)
-		if err != nil {
-			return nil, err
-		}
-		nums = append(nums, num)
-	}
-	return nums, nil
-}
 
 func p1(data []int) {
 	defer helpers.TimeTrack(time.Now())
