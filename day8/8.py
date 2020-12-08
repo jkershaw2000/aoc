@@ -11,24 +11,18 @@ def run(instructions):
         seen[pc] = True
         cmd, val = instructions[pc][:3], instructions[pc][4:]
         pc += 1
-        if cmd == "acc":
-            acc += int(val)
-        elif cmd == "jmp":
-            pc += int(val) -1 # pc already incremented by 1
+        if cmd == "acc": acc += int(val)
+        elif cmd == "jmp": pc += int(val) -1 # pc already incremented by 1
     return acc, seen, pc
 
 def p2(seen):
+    swap = {'nop':'jmp', 'jmp':'nop'}
     for i, used in enumerate(seen):
         instructions = get_input()
         cmd, val = instructions[i][:3], instructions[i][4:]
         if used == True and cmd in ['nop', 'jmp']:
-            if cmd == 'nop':
-                instructions[i] = 'jmp' + val
-            elif cmd == 'jmp':
-                instructions[i] = 'nop'+ val
-                
+            instructions[i] = swap[cmd] + val
         acc, _, pc = run(instructions)
-        print(pc, len(instructions))
         if  pc ==  len(instructions):
             return acc
 
