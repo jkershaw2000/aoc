@@ -60,6 +60,15 @@ func Find(lst []string, val string) bool {
 	return false
 }
 
+func FindInt(lst []int, val int) bool {
+	for _, str := range lst {
+		if str == val {
+			return true
+		}
+	}
+	return false
+}
+
 func MinMax(array []int) (int, int) {
 	var max int = array[0]
 	var min int = array[0]
@@ -76,4 +85,12 @@ func MinMax(array []int) (int, int) {
 
 func Xor(a bool, b bool) bool {
 	return (a || b) && !(a && b)
+}
+
+func Sum(a []int) int {
+	res := 0
+	for _, num := range a {
+		res = res + num
+	}
+	return res
 }
