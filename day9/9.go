@@ -30,7 +30,7 @@ func p2Brute(data []int, ans int) {
 			res = helpers.Sum(data[i:j])
 			if res == ans {
 				min, max := helpers.MinMax(data[i:j])
-				fmt.Printf("Part 2: %d ", (min + max))
+				fmt.Printf("Part 2 Brute: %d ", (min + max))
 				return
 			} else if res > ans {
 				break
@@ -74,11 +74,10 @@ func p2(data []int, ans int) {
 	i, j := 0, 1
 	sum := data[i] + data[j]
 	for sum != ans {
-		for sum < ans {
+		if sum < ans {
 			j++
 			sum += data[j]
-		}
-		for sum > ans {
+		} else {
 			sum -= data[i]
 			i++
 		}

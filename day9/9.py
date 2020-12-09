@@ -29,10 +29,10 @@ def p2(data, ans):
     i, j = 0, 1
     sum = data[i] + data[j]
     while not sum == ans:
-        while sum < ans:
+        if sum < ans:
             j += 1
             sum += data[j]
-        while sum > ans:
+        else :
             sum -= data[i]
             i += 1
     return min(data[i:j]) + max(data[i:j])
@@ -47,7 +47,7 @@ print(f"Part 1: {part1} in {p1end-p1start}s.")
 p2Brutestart = timer()
 p2Brute = p2Brute(data, part1)
 p2Bruteend = timer()
-print(f"Part 2: {p2Brute} in {p2Bruteend-p2Brutestart}s.")
+print(f"Part 2 Brute: {p2Brute} in {p2Bruteend-p2Brutestart}s.")
 
 p2Start = timer()
 p2 = p2(data, part1)
