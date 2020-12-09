@@ -21,7 +21,7 @@ func p1(data []int) int {
 	return res
 }
 
-func p2(data []int, ans int) {
+func p2Brute(data []int, ans int) {
 	defer helpers.TimeTrack(time.Now())
 	length := len(data)
 	var res int
@@ -69,6 +69,24 @@ func removeDuplicates(lst []int) []int {
 	return res
 }
 
+func p2(data []int, ans int) {
+	defer helpers.TimeTrack(time.Now())
+	i, j := 0, 1
+	sum := data[i] + data[j]
+	for sum != ans {
+		for sum < ans {
+			j++
+			sum += data[j]
+		}
+		for sum > ans {
+			sum -= data[i]
+			i++
+		}
+	}
+	min, max := helpers.MinMax(data[i:j])
+	fmt.Printf("Part 2: %d ", (min + max))
+}
+
 func main() {
 	fmt.Println("Day 9: ")
 	fileName := "/Users/jack/Documents/Github/aoc-2020/day9/9.in"
@@ -77,5 +95,6 @@ func main() {
 		panic(err)
 	}
 	part1 := p1(data)
+	p2Brute(data, part1)
 	p2(data, part1)
 }
