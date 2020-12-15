@@ -37,7 +37,6 @@ def p2(data):
         else:
             address = cmd.lstrip('mem[').rstrip(']')
             address = bin(int(address))[2:].zfill(36)
-            # val = bin(int(val))[2:].zfill(36)
             for a in memoryDecoder(address, mask):
                 memory[a] = int(val)
     return sum([val for val in memory.values()])
