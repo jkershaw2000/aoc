@@ -1,0 +1,4 @@
+Mul. IntExp  ::= IntExp  "*" IntExp1 ;
+Add. IntExp1 ::= IntExp1 "+" IntExp2 ;
+Nmb. IntExp2 ::= Integer ;
+coercions IntExp 2 ;
