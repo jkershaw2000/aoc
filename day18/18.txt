@@ -1,4 +1,0 @@
-Only difference between them is a small change to the grammar. 
-Same level of precidence to differne.
-All autogenerted using bnfc. Calcultor.hs from University work last year.
-
