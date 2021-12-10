@@ -22,5 +22,3 @@ part1 = min_fuel_p1
 part2 = min_fuel_p2
 print(f"Part 1: {part1}")
 print(f"Part 2: {part2}")
-
-
