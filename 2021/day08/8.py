@@ -1,5 +1,5 @@
 with open("2021/day8/t2.in", "r") as f:
-    data = [line.split(" | ")for line in f.readlines()]
+    data = [line.split(" | ") for line in f.readlines()]
 
 ENCODING = {
     "abcdefg": 0,
@@ -14,7 +14,7 @@ ENCODING = {
     "abcdfg": 9,
 }
 
-number_segments = {2:1, 3:7, 4:4, 5:(2,3,5), 6:(0,6,9), 7:8}
+number_segments = {2: 1, 3: 7, 4: 4, 5: (2, 3, 5), 6: (0, 6, 9), 7: 8}
 
 outputs = [line[1].strip().split(" ") for line in data]
 test_values = [line[0].strip().split(" ") for line in data]
@@ -28,18 +28,20 @@ def part1():
                 digits.append(number_segments[len(digit)])
     return len(digits)
 
+
 def part2():
     numbers = []
     for idx in range(len(test_values)):
         mapping = get_mapping(test_values[idx])
         numbers.append(calculate_output(mapping, outputs[idx]))
-    
+
     return sum(numbers)
+
 
 def get_mapping(deduce):
     # segment_mapping = {"a": None,"b": None, "c": None, "d": None, "e": None, "f": None, "g": None }
 
-    digit_wiring = {i:{}for i in range(10)}
+    digit_wiring = {i: {} for i in range(10)}
     for segment in deduce:
         numbers = number_segments[len(segment)]
         if type(numbers) == int:
@@ -47,6 +49,7 @@ def get_mapping(deduce):
 
     print(digit_wiring)
     return digit_wiring
+
 
 def calculate_outputs(mapping, output):
     val = ""
